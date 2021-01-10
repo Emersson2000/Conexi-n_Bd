@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class bdEjercicio1 {
-    
+
     private static final String nombre = "cliente";
     private static final String user = "root";
     private static final String pass = "0986358542";
@@ -12,16 +12,16 @@ public class bdEjercicio1 {
             + " JDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
     private Connection con = null;
 
-    public boolean Conexion_Mysql() {
+    public Connection Conexion_Mysql() {
 
         try {
             con = DriverManager.getConnection(lineaBase, user, pass);
             if (con != null) {
-                return true;
+                System.out.println("Conexión exitosa");
             }
         } catch (Exception e) {
             System.out.println("Error al conectar: " + e.getMessage());
         }
-        return false;
+        return con;
     }
 }
